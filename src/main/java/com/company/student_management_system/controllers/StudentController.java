@@ -3,6 +3,7 @@ package com.company.student_management_system.controllers;
 import com.company.student_management_system.dto.HttpApiResponse;
 import com.company.student_management_system.dto.StudentDto;
 import com.company.student_management_system.service.StudentService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ public class StudentController {
     private final StudentService studentService;
 
     @PostMapping
-    public HttpApiResponse<StudentDto> createStudent(@RequestBody StudentDto dto) {
+    public HttpApiResponse<StudentDto> createStudent(@RequestBody @Valid StudentDto dto) {
         return this.studentService.createStudent(dto);
     }
 

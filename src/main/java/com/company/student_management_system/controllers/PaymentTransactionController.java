@@ -3,6 +3,7 @@ package com.company.student_management_system.controllers;
 import com.company.student_management_system.dto.HttpApiResponse;
 import com.company.student_management_system.dto.PaymentTransactionDto;
 import com.company.student_management_system.service.PaymentTransactionService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class PaymentTransactionController {
     private final PaymentTransactionService transactionService;
 
     @PostMapping("/students/{id}/transactions")
-    public HttpApiResponse<PaymentTransactionDto> createTransaction(@PathVariable Long id, @RequestBody PaymentTransactionDto dto) {
+    public HttpApiResponse<PaymentTransactionDto> createTransaction(@PathVariable Long id, @RequestBody @Valid PaymentTransactionDto dto) {
         return this.transactionService.createTransaction(id, dto);
     }
 

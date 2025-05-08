@@ -2,6 +2,7 @@ package com.company.student_management_system.dto;
 
 import com.company.student_management_system.models.enums.UserRole;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -17,6 +18,6 @@ public class UserDto {
     private String username;
     @NotBlank
     private String password;
-    @NotBlank
+    @NotNull
     private UserRole userRole;
 }
